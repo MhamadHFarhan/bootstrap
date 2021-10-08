@@ -77,7 +77,6 @@ class Modal extends BaseComponent {
     this._backdrop = this._initializeBackDrop()
     this._focustrap = this._initializeFocusTrap()
     this._isShown = false
-    this._ignoreBackdropClick = false
     this._isTransitioning = false
     this._scrollBar = new ScrollBarHelper()
   }
@@ -268,11 +267,6 @@ class Modal extends BaseComponent {
 
   _showBackdrop(callback) {
     EventHandler.on(this._element, EVENT_CLICK_DISMISS, event => {
-      if (this._ignoreBackdropClick) {
-        this._ignoreBackdropClick = false
-        return
-      }
-
       if (event.target !== event.currentTarget) {
         return
       }
