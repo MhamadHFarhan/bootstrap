@@ -273,7 +273,10 @@ class Modal extends BaseComponent {
 
       if (this._config.backdrop === true) {
         this.hide()
-      } else if (this._config.backdrop === 'static') {
+        return
+      }
+
+      if (this._config.backdrop === 'static') {
         this._triggerBackdropTransition()
       }
     })
