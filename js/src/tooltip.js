@@ -642,9 +642,9 @@ class Tooltip extends BaseComponent {
   _getConfig(config) {
     const dataAttributes = Manipulator.getDataAttributes(this._element)
 
-    for (const dataAttr of Object.keys(dataAttributes)) {
-      if (DISALLOWED_ATTRIBUTES.has(dataAttr)) {
-        delete dataAttributes[dataAttr]
+    for (const dataAttribute of Object.keys(dataAttributes)) {
+      if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
+        delete dataAttributes[dataAttribute]
       }
     }
 
@@ -699,9 +699,10 @@ class Tooltip extends BaseComponent {
     const tip = this.getTipElement()
     const basicClassPrefixRegex = new RegExp(`(^|\\s)${this._getBasicClassPrefix()}\\S+`, 'g')
     const tabClass = tip.getAttribute('class').match(basicClassPrefixRegex)
+
     if (tabClass !== null && tabClass.length > 0) {
-      for (const tClass of tabClass.map(token => token.trim())) {
-        tip.classList.remove(tClass)
+      for (const cleanTabClass of tabClass.map(token => token.trim())) {
+        tip.classList.remove(cleanTabClass)
       }
     }
   }
