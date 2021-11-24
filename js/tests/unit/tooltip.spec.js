@@ -670,7 +670,7 @@ describe('Tooltip', () => {
 
       setTimeout(() => {
         expect(tooltip.show).toHaveBeenCalled()
-        expect(document.querySelectorAll('.tooltip').length).toBe(0)
+        expect(document.querySelectorAll('.tooltip')).toHaveSize(0)
         done()
       }, 200)
 
